@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalindi Enterprise - Premium Metal Casting Solutions</title>
+    <style>
+        :root {
+            --color-navy: #14234B;
+            --color-blue: #3A6DAF;
+            --color-light-blue: #94BAC4;
+            --color-orange: #E57D37;
+            --color-mustard: #EAAD62;
+            --color-beige: #ECDFCB;
+            --primary-color: var(--color-navy);
+            --secondary-color: var(--color-blue);
+            --accent-color: var(--color-orange);
+            --bg-primary: var(--color-beige);
+            --bg-secondary: var(--color-light-blue);
+            --bg-tertiary: var(--color-mustard);
+            --bg-card: #F3EEE6;
+            --text-primary: #14234B;
+            --text-secondary: #2F3E5C;
+            --text-light: #4E5D73;
+            --border-color: #C9C1B4;
+            --border-hover: var(--color-orange);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* background: var(--bg-primary); */
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 600;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(229, 125, 55, 0.3);
+        }
+
+        .hero {
+            position: relative;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 50%, var(--color-orange) 100%);
+            overflow: hidden;
+            border-radius: 0 0 85% 85% / 30%;
+        }
+        @media (max-width: 768px) {
+            .hero,
+    .hero::before {
+        border-radius: 0 0 100% 100% / 10%;
+    }
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('Image/pipes.jpg') center/cover;
+            opacity: 0.08;
+            z-index: 0;
+            border-radius: 0 0 100% 100% / 20%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: -webkit-fill-available;
+            padding: 0 2rem;
+        }
+
+        .breadcrumb {
+            color: var(--secondary-color);
+            font-size: 0.875rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .stats-section {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 12px;
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        
+
+        .products-section {
+            padding: 2rem;
+            background: white;
+        }
+
+        .products-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid var(--border-color);
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-hover);
+            box-shadow: 0 10px 25px rgba(229, 125, 55, 0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .product-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .about-section {
+            padding: 6rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .about-text {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            /* padding: 0.75rem 0; */
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--text-primary);
+        }
+
+        .features-list li::before {
+            content: '✓';
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .capabilities {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .capability-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            border: 2px solid var(--border-color);
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-hover);
+            box-shadow: 0 10px 25px rgba(229, 125, 55, 0.15);
+        }
+
+        .capability-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .capability-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .capability-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .cta-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--bg-tertiary), var(--color-orange));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&h=600&fit=crop') center/cover;
+            opacity: 0.05;
+        }
+
+        .cta-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 600;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(229, 125, 55, 0.3);
+        }
+
+        footer {
+            background: var(--primary-color);
+            padding: 4rem 2rem 2rem;
+            color: white;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links h3 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-mustard);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .social-icon:hover {
+            background: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .stats-container,
+            .services-grid,
+            .products-grid,
+            .about-container,
+            .cta-container,
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .capabilities {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+  /* Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 7));
+  }
+}
+
+/* Slider container */
+.slider {
+  background: white;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+  height: 300px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  width: 1400px;
+}
+
+/* Gradient overlays */
+.slider::before,
+.slider::after {
+  content: "";
+  height: 100px;
+  position: absolute;
+  width: 200px;
+  z-index: 2;
+  top: 0;
+}
+
+.slider::before {
+  left: 0;
+}
+
+.slider::after {
+  right: 0;
+  transform: rotateZ(180deg);
+}
+
+/* Slide track */
+.slide-track {
+  animation: scroll 40s linear infinite;
+  display: flex;
+  width: calc(250px * 14);
+}
+
+/* Individual slides */
+.slide {
+margin-right:30px;
+  height: 100px;
+  width: 250px;
+}
+/* ========================= */
+/* Tablet */
+@media (max-width: 1024px) {
+  .slider {
+    height: 220px;
+  }
+
+  .slide {
+    width: 180px;
+    margin-right: 20px;
+  }
+
+  .slide-track {
+    width: calc(180px * 14);
+  }
+
+  @keyframes scroll {
+    100% {
+      transform: translateX(calc(-180px * 7));
+    }
+  }
+}
+
+/* ========================= */
+/* Mobile */
+@media (max-width: 600px) {
+  .slider {
+    height: 150px;
+  }
+
+  .slide {
+    width: 130px;
+    margin-right: 15px;
+  }
+
+  .slide-track {
+    width: calc(130px * 14);
+  }
+
+  @keyframes scroll {
+    100% {
+      transform: translateX(calc(-130px * 7));
+    }
+  }
+}
+
+.section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+
+.section-label {
+  color: var(--secondary-color, #555);
+  font-size: 0.875rem;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color, #111);
+}
+
+.section-header h4 {
+  color: var(--text-secondary, #666);
+  font-weight: 400;
+  line-height: 1.8;
+}
+.logo-icon img {
+    width: 200px; /* adjust size of logo */
+    height: 60px; /* keeps it square */
+    object-fit: contain; /* prevents stretching */
+    border-radius: 8px; /* optional, gives a slightly rounded look */
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon"><img src="Image/logo.jpg"></div>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#products">Products</a>
+                <a href="#services">Industries</a>
+                <a href="#contact">Contact</a>
+                <button class="nav-btn">📞 +91 95375 26592</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="breadcrumb">Kalindi Enterprises</div>
+            <h1>Exporter of Ferrous & Non-Ferrous Castings</h1>
+            <p>Premier Merchant delivering exceptional quality Cast Iron, SG Iron, Aluminum & Brass castings</p>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">2200</div>
+                <div class="stat-label">MT Annual Capacity</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">0.050-250</div>
+                <div class="stat-label">Kg Weight Range</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Quality Assured</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section" id="products">
+        <div class="section-header">
+            <div class="section-label">OUR PRODUCTS</div>
+            <h2>Comprehensive Casting Solutions</h2>
+            <h4>Our current production includes Valve Body, Gear box housing, Auto parts, Crank shafts, Agriculture parts and Motor body work as per clients provided drawing or pattern.</h4>
+            <h6 style="margin-top:7px;">C.I. CASTING | S. G. I. CASTING | ALUMINIUM CASTING</h6>
+        </div>
+        <!-- <div class="products-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1565688534245-05d6b5be184a?w=600&h=400&fit=crop" alt="Cast Iron Casting" class="product-image">
+                <div class="product-info">
+                    <h3>Cast Iron Casting</h3>
+                    <p>Weight Range: 0.050 Kg to 250 Kg | Annual Capacity: 2200 MT</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&h=400&fit=crop" alt="SG Iron Casting" class="product-image">
+                <div class="product-info">
+                    <h3>S.G. Iron (Ductile) Casting</h3>
+                    <p>Nodular cast iron with superior strength and durability</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=400&fit=crop" alt="Aluminum Casting" class="product-image">
+                <div class="product-info">
+                    <h3>Aluminum Casting</h3>
+                    <p>Weight Range: 0.50 Gram to 150 Kg | Lightweight & corrosion resistant</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=400&fit=crop" alt="Brass Casting" class="product-image">
+                <div class="product-info">
+                    <h3>Brass Casting</h3>
+                    <p>Premium quality brass components for various applications</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=600&h=400&fit=crop" alt="Investment Casting" class="product-image">
+                <div class="product-info">
+                    <h3>Investment Casting</h3>
+                    <p>Weight Range: 0.50 Kg to 100 Kg | Precision casting solutions</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=600&h=400&fit=crop" alt="Auto Parts" class="product-image">
+                <div class="product-info">
+                    <h3>Specialized Components</h3>
+                    <p>Valve bodies, gear box housing, crankshafts, motor bodies & more</p>
+                </div>
+            </div>
+        </div> -->
+        <!-- hi -->
+        <div class="slider">
+	<div class="slide-track">
+		<div class="slide">
+			<img src="Image/1.jpg" height="300" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="Image/2.jpg" height="300" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="Image/3.jpg" height="300" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="Image/4.jpg" height="300" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="Image/5.jpg" height="300" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="Image/6.jpg" height="300" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="Image/7.jpg" height="300" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="Image/8.jpg" height="300" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="Image/9.jpg" height="300" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="Image/1.jpg" height="300" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="Image/2.jpg" height="300" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="Image/3.jpg" height="300" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="Image/4.jpg" height="300" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="Image/5.jpg" height="300" width="250" alt="" />
+		</div>
+	</div>
+        </div>
+        <!-- hi -->
+    </section>
+    <section class="about-section" id="about">
+        <div class="section-header">
+            <div class="section-label">ABOUT US</div>
+            <h2>State-of-Art Manufacturing Excellence</h2>
+            <h3>Equipped with advanced technology and laboratories to cast components with stringent metallurgical and quality requirements</h3>
+        </div>
+        <div class="about-container">
+            <img src="Image/melting.jpg" alt="Manufacturing Facility" class="about-image">
+            <div class="about-content">
+                <p class="about-text">Located in Rajkot/Jamnagar, Gujarat, we are one of the premier foundries in India with cutting-edge infrastructure and quality control systems.</p>
+                <p class="about-text">Our goal is to produce exceptional and innovative Cast Iron & Steel Graded Iron Casting,  Aluminum Casting & Brass Parts products</p>
+
+                <ul class="features-list">
+                    <li>Fully automatic load controlled Induction furnace</li>
+                    <li>Automatic machine molding facility</li>
+                    <li>Semi automatic sand plant</li>
+                    <li>Online carbon silicon analyzer for grade control</li>
+                    <li>Microscope with image analyzer</li>
+                    <li>Spectrometer for chemical analysis (NSIC)</li>
+                    <li>Fully equipped laboratory (IS & ASTM Standards)</li>
+                    <li>10 years proven track record</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="capabilities">
+            <div class="capability-card">
+                <div class="capability-icon">🎯</div>
+                <h3>Quality First</h3>
+                <p>Good surface finish, accurate shape and dimensional control</p>
+            </div>
+            <div class="capability-card">
+                <div class="capability-icon">🔬</div>
+                <h3>Advanced Testing</h3>
+                <p>State-of-art laboratory facilities for quality assurance</p>
+            </div>
+            <div class="capability-card">
+                <div class="capability-icon">🤝</div>
+                <h3>Customer Focus</h3>
+                <p>Total customer satisfaction through agreed quality</p>
+            </div>
+            <div class="capability-card">
+                <div class="capability-icon">📈</div>
+                <h3>Continuous Growth</h3>
+                <p>Upgrading resources to meet changing expectations</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <div class="cta-container">
+            <div class="cta-content">
+                <div class="section-label">GET IN TOUCH</div>
+                <h2>Partner With Kalindi Enterprise</h2>
+                <p class="about-text">Contact us to discuss your casting requirements. We deliver exceptional quality products that meet your exact specifications with timely delivery.</p>
+                <p class="about-text" style="margin-bottom: 1rem;"><strong>Email:</strong> kaalindi.ent@gmail.com</p>
+                <p class="about-text" style="margin-bottom: 1rem;"><strong>Address:</strong> Kalindi  enterprise, office no. 102, radhe shyam – 2, mayani chowk, chandresh nagar main raod, rajkot – 360 004
+</p>
+                <button class="cta-btn">📞 Call +91 95375 26592</button>
+            </div>
+            <img src="Image/industry1.jpg" alt="Contact Us" class="about-image">
+        
